@@ -35,9 +35,9 @@ laradockを使ってたが、無駄なコンテナ作りすぎでは?っと思�
 - データベースの設定を書き換え
 
 ## port
-※`docker-compose ps`でも調べられる。
-localhost:8000 -> laravelのページ
-localhost:8080 -> phpMyAdmin
+※`docker-compose ps`でも調べられる。<br>
+http://localhost:8000 -> laravelのページ<br>
+http://localhost:8080 -> phpMyAdmin<br>
 
 ## DB設定
 ```env
@@ -48,6 +48,19 @@ DB_DATABASE=sample
 DB_USERNAME=user
 DB_PASSWORD=password
 ```
+
+## Laravel config設定
+#### config/app.phpの設定変更
+
+- 70行目: `'timezone' => 'Asia/Tokyo',`
+- 83行目: `'locale' => 'ja',`
+
+### config/database.phpの設定変更
+
+絵文字使わないのでマルチバイトでなくて良い(mb4を消す)
+
+- 55行目:`'charset' => 'utf8',`
+- 56行目:`'collation' => 'utf8_unicode_ci',`
 
 ## 反省点
 - neginx周りをもう少し勉強
