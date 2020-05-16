@@ -1,5 +1,9 @@
 FROM php:7.3-fpm
 
+# install Node.js
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN apt-get install -y nodejs
+
 # install composer
 COPY ./php.ini /usr/local/etc/php/
 RUN cd /usr/bin && curl -s http://getcomposer.org/installer | php && ln -s /usr/bin/composer.phar /usr/bin/composer
